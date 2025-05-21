@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Navigation from "../../components/Front/Navigation";
 import Header from "../../components/Front/Header";
-import Footer from "../../components/Front/Footer";
 
 function About() {
     return (
@@ -79,9 +77,6 @@ function About() {
                 </div>
             </section>
         </main>
-
-        {/*Footer*/}
-        <Footer />
 
         </div>
     );

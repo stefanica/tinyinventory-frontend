@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Front/Home';
 import About from './pages/Front/About';
 import Contact from './pages/Front/Contact';
+import Faq from './pages/Front/Faq';
 
 import Dashboard from './pages/Dashboard/Dashboard';
 
@@ -20,6 +21,7 @@ function App() {
         <Route element={<FrontLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add more routes here if needed */}
         </Route>
