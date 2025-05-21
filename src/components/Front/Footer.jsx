@@ -13,9 +13,9 @@ function Footer() {
                 <div className="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div className="col-auto"><div className="small m-0 text-white">Copyright &copy; Tiny Inventory {year}</div></div>
                     <div className="col-auto">
-                        <a className="link-light small" href="#!">Privacy</a>
+                        <Link className="link-light small" to="/privacy">Privacy</Link>
                         <span className="text-white mx-1">&middot;</span>
-                        <a className="link-light small" href="#!">Terms</a>
+                        <Link className="link-light small" to="/terms">Terms</Link>
                         <span className="text-white mx-1">&middot;</span>
                         <Link className="link-light small" to="/contact">Contact</Link>
                     </div>

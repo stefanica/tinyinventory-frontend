@@ -6,6 +6,8 @@ import Home from './pages/Front/Home';
 import About from './pages/Front/About';
 import Contact from './pages/Front/Contact';
 import Faq from './pages/Front/Faq';
+import Terms from './pages/Front/Terms';
+import Privacy from './pages/Front/Privacy';
 
 import Dashboard from './pages/Dashboard/Dashboard';
 
@@ -23,6 +25,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/contact" element={<Contact />} />
+
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           {/* Add more routes here if needed */}
         </Route>
 
