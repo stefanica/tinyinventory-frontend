@@ -11,8 +11,11 @@ import Privacy from './pages/Front/Privacy';
 
 import Dashboard from './pages/Dashboard/Dashboard';
 
+import Login from './pages/Auth/Login';
+
 import FrontLayout from './layouts/FrontLayout';
 import DashboardLayout from './layouts/DashboardLayout';
+import AuthLayout from './layouts/AuthLayout';
 
 function App() {
 
@@ -33,6 +36,12 @@ function App() {
 
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />}/>
+          
+          {/* Add more routes here if needed */}
+        </Route>
+
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />}/>
           
           {/* Add more routes here if needed */}
         </Route>

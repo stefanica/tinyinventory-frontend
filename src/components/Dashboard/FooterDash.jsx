@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Link } from 'react-router-dom';
 
 function Footer() {
     let currentDate = new Date();
@@ -10,9 +11,9 @@ function Footer() {
                         <div className="d-flex align-items-center justify-content-between small">
                             <div className="text-muted">Copyright &copy; Your Website {year}</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <Link className="link-light small text-muted" to="/privacy"><span style={{ color: "black" }}>Privacy Policy </span></Link>
                                 &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                                <Link className="link-light small text-muted" to="/terms" ><span style={{ color: "black" }}> Terms &amp; Conditions</span></Link>
                             </div>
                         </div>
                     </div>
