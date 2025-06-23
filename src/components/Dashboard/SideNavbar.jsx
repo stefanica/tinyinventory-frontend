@@ -3,6 +3,7 @@ import ReactDom from "react-dom";
 
 
 
+
 function SideNavbar() {
     return (
         <div id="layoutSidenav_nav">
@@ -31,7 +32,8 @@ function SideNavbar() {
                                 </div>*/}
 
 
-                            <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            {/********* Replaced with the code below this ************/}
+                            {/*<a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
                                 Pages
                                 <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
@@ -50,23 +52,42 @@ function SideNavbar() {
                                             <a className="nav-link" href="/contact">Contact</a>
                                         </nav>
                                     </div>
+                                </nav>
+                            </div>*/}
+                            {/********* Replaced with the code below this ************/}
 
+
+                            {/**************  Code replaced the one bove   **************/}
+                            <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFront" aria-expanded="false" aria-controls="collapseFront">
+                                <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
+                                Front
+                                <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                            </a>
+                            <div className="collapse" id="collapseFront" aria-labelledby="headingFront" data-bs-parent="#sidenavAccordion">
+                                <nav className="sb-sidenav-menu-nested nav">
+                                    <a className="nav-link" href="/">Home</a>
+                                    <a className="nav-link" href="/about">About</a>
+                                    <a className="nav-link" href="/faq">FAQ</a>
+                                    <a className="nav-link" href="/contact">Contact</a>
                                 </nav>
                             </div>
+                            {/**************  Code replaced the one bove   **************/}
+
+
                             <div className="sb-sidenav-menu-heading">Database</div>
                             <a className="nav-link" href="charts.html">
-                                <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
-                                Charts
+                                <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
+                                Inventory
                             </a>
                             <a className="nav-link" href="tables.html">
-                                <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
-                                Inventory Table
+                                <div className="sb-nav-link-icon"><i className="fas fa-shopping-cart"></i></div>
+                                Products Out
                             </a>
                         </div>
                     </div>
                     <div className="sb-sidenav-footer">
                         <div className="small">Logged in as:</div>
-                        Start Bootstrap
+                        {localStorage.getItem("username")}
                     </div>
                 </nav>
             </div>

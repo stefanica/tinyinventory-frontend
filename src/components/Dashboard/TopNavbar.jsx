@@ -1,7 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useNavigate } from 'react-router-dom';
 
 function TopNavbar() {
+    const navigate = useNavigate(); // Hook for programmatic navigation
+    
+    function logOut() {
+        localStorage.removeItem("tiny_access_token");
+        localStorage.removeItem("username");
+        navigate('/'); // Redirect
+
+    }
+
     return (
         <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
              {/*Navbar Brand*/}
@@ -23,7 +33,7 @@ function TopNavbar() {
                         <li><a className="dropdown-item" href="#!">Settings</a></li>
                         <li><a className="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#!">Logout</a></li>
+                        <li><a className="dropdown-item" onClick={logOut}>Logout</a></li>
                     </ul>
                 </li>
             </ul>

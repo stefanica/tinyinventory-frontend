@@ -12,6 +12,8 @@ import Privacy from './pages/Front/Privacy';
 import Dashboard from './pages/Dashboard/Dashboard';
 
 import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register';
+import ForgotPassword from './pages/Auth/ForgotPassword';
 
 import FrontLayout from './layouts/FrontLayout';
 import DashboardLayout from './layouts/DashboardLayout';
@@ -42,6 +44,8 @@ function App() {
 
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />}/>
+          <Route path="/register" element={<Register />}/>
+          <Route path="/password" element={<ForgotPassword />}/>
           
           {/* Add more routes here if needed */}
         </Route>
