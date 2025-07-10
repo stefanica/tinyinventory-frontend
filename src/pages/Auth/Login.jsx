@@ -2,52 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+//import { useEffect } from 'react';
 import { useState } from "react";
 import ApiUrls from "../../assets/js/api/ApiUrls";
 
 function Login() {
     const navigate = useNavigate(); // Hook for programmatic navigation
-    
-    /********IF already logged in and the Token is valid, THEN redirect to Dashboard ****************/
-    useEffect(() => {
-        const ACCESS_TOKEN = localStorage.getItem("tiny_access_token");
-
-        if (ACCESS_TOKEN) {
-            // Define and call the async function inside useEffect
-            const checkToken = async () => {
-                try {
-                    const response = await fetch(ApiUrls.VALIDATE, {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${ACCESS_TOKEN}`, // Correct way
-                        },
-                        /*body: JSON.stringify({
-                            token: ACCESS_TOKEN,
-                        }),*/
-                    });
-
-                    //const data = await response.json();
-
-                    if (!response.ok) {
-                        //alert("Token invalid: " + ACCESS_TOKEN );
-                        localStorage.removeItem("tiny_access_token");
-                        localStorage.removeItem("username");
-                    } else {
-                        //alert("Welcome back: " + data.message);
-                        navigate('/dashboard'); // Redirect
-                    }
-                } catch (error) {
-                    console.error("Token check failed:", error);
-                    //localStorage.removeItem("tiny_access_token");
-                }
-            };
-
-            checkToken();
-        }
-    }, [navigate]); // Safe to add navigate here
-    /*********************************************************************/
 
 
     /**********************Login Form*******************************/

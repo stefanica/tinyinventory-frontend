@@ -75,11 +75,11 @@ function SideNavbar() {
 
 
                             <div className="sb-sidenav-menu-heading">Database</div>
-                            <a className="nav-link" href="charts.html">
+                            <a className="nav-link" href="/dashboard">
                                 <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                                 Inventory
                             </a>
-                            <a className="nav-link" href="tables.html">
+                            <a className="nav-link" href="/dashboard">
                                 <div className="sb-nav-link-icon"><i className="fas fa-shopping-cart"></i></div>
                                 Products Out
                             </a>

@@ -1,55 +1,59 @@
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-//import { useState } from "react";
+//import { useEffect } from 'react';
+import { useState } from "react";
 import ApiUrls from "../../assets/js/api/ApiUrls";
 
 
 
 function Register() {
-const navigate = useNavigate(); // Hook for programmatic navigation
+    const navigate = useNavigate(); // Hook for programmatic navigation
     
-    /********IF already logged in and the Token is valid, THEN redirect to Dashboard ****************/
-    useEffect(() => {
-        const ACCESS_TOKEN = localStorage.getItem("tiny_access_token");
+    /**********************Login Form*******************************/
+    const [infoReg, setInfoReg] = useState('');
 
-        if (ACCESS_TOKEN) {
-            // Define and call the async function inside useEffect
-            const checkToken = async () => {
-                try {
-                    const response = await fetch(ApiUrls.VALIDATE, {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${ACCESS_TOKEN}`, // Correct way
-                        },
-                        /*body: JSON.stringify({
-                            token: ACCESS_TOKEN,
-                        }),*/
-                    });
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        
 
-                    //const data = await response.json();
+        try {
+            const response = await fetch(ApiUrls.REGISTER, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstName: formData.get('firstname'),
+                    lastName: formData.get('lastname'),
+                    username: formData.get('username'),
+                    email: formData.get('email'),
+                    password: formData.get('password'),
+                    passwordConfirmed: formData.get('passwordconfirm'),
+                }),
+            });
 
-                    if (!response.ok) {
-                        //alert("Token invalid: " + ACCESS_TOKEN );
-                        localStorage.removeItem("tiny_access_token");
-                        localStorage.removeItem("username");
-                    } else {
-                        //alert("Welcome back: " + data.message);
-                        navigate('/dashboard'); // Redirect
-                    }
-                } catch (error) {
-                    console.error("Token check failed:", error);
-                    //localStorage.removeItem("tiny_access_token");
-                }
-            };
-
-            checkToken();
+            if (!response.ok) {
+                const data = await response.json();
+                setInfoReg("Registration failed: " + data.message);
+                //alert("Login failed:" + data.error);
+            } else {
+                // The 3 lines of code below can be used to remain logged in if we also send the JWT token.
+                //const data = await response.json();
+                //localStorage.setItem("tiny_access_token", data.token);
+                //localStorage.setItem('username', formData.get('username'));
+                navigate('/login');
+                
+                /*alert(data.token);
+                document.getElementById("loginForm").reset();*/
+            }
+        } catch (err) {
+            console.error('Registration error:', err);
+            setInfoReg("Registration failed! " + err);
         }
-    }, [navigate]); // Safe to add navigate here
-    /*********************************************************************/
 
-
+    }
+    /********************************************************** */
 
 
 
@@ -61,7 +65,7 @@ const navigate = useNavigate(); // Hook for programmatic navigation
                         <div className="card shadow-lg border-0 rounded-lg mt-5">
                             <div className="card-header"><h3 className="text-center font-weight-light my-4">Create Account</h3></div>
                             <div className="card-body">
-                                <form method="post" autoComplete="on">
+                                <form onSubmit={handleSubmit} method="post" autoComplete="on">
                                     <div className="row mb-3">
                                         <div className="col-md-6">
                                             <div className="form-floating mb-3 mb-md-0">
@@ -87,7 +91,7 @@ const navigate = useNavigate(); // Hook for programmatic navigation
                                     <div className="row mb-3">
                                         <div className="col-md-6">
                                             <div className="form-floating mb-3 mb-md-0">
-                                                <input className="form-control" id="inputPassword" name="password" type="password" placeholder="Create a password" autoComplete="new-password" />
+                                                <input className="form-control" id="inputPassword" name="password" type="password" placeholder="Create a password" autoComplete="new-password"  title="Must be at least 8 characters, include uppercase, lowercase, number, and special character."/>
                                                 <label htmlFor="inputPassword">Password</label>
                                             </div>
                                         </div>
@@ -98,8 +102,10 @@ const navigate = useNavigate(); // Hook for programmatic navigation
                                             </div>
                                         </div>
                                     </div>
+                                    <small style={{ color: "red" }}>{infoReg}</small>
                                     <div className="mt-4 mb-0">
-                                        <div className="d-grid"><a className="btn btn-primary btn-block" href="login.html">Create Account</a></div>
+                                        <input type="submit" className="btn btn-primary btn-block d-grid" value="Create Account" />
+                                        {/*<div className="d-grid"><a className="btn btn-primary btn-block" href="login.html">Create Account</a></div>*/}
                                     </div>
                                 </form>
                             </div>
