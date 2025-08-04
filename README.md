@@ -4,11 +4,15 @@
 * 30% available live -> percentage available for live view on https://tinyinventory.com
 
 The whole project uses Docker for containerization and a VPS for deployment.  
-The Docker images are updated when certain steps are done/ready, that's why there is a difference in the two percentages above.
+The Docker images are updated when certain steps are done/ready, that's why there is a difference in the two percentages above.  
+
+This is one of a 3-parts project: Frontend, Android App and Backend
 
 ## Technologies used:
 * JavaScript – core programming language
 * React – front-end library for building user interfaces. The website is build like a Single Page Application.
 * Bootstrap – CSS framework for responsive design and styling
 * HTML – markup language for page structure
+* Vite - build tool and development server for web projects.
+
 
