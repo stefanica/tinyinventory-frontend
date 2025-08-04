@@ -16,7 +16,7 @@ function DashboardLayout() {
 
     const navigate = useNavigate(); // Hook for programmatic navigation
 
-    /********IF the Token from localstorage is NOT valid, THEN redirect to Login ****************/
+    /********IF the Token from localstorage is NOT valid or absent, THEN redirect to Login ****************/
         useEffect(() => {
             const ACCESS_TOKEN = localStorage.getItem("tiny_access_token");
     

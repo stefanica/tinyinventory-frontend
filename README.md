@@ -1,12 +1,14 @@
-# TinyInventory React + Vite Frontend SPA
+# TinyInventory React + Vite Frontend SPA (Single Page App)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+50% done -> percentage of the frontend project completed
+30% available live -> percentage available for live view on https://tinytinventory.com
 
-Currently, two official plugins are available:
+The whole project uses Docker for containerization and a VPS for deployment.
+The DOcker images are updated when certain steps are done/ready, that's why there is a difference in the two percentages above.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies used:
+* JavaScript – core programming language
+* React – front-end library for building user interfaces.
+* Bootstrap – CSS framework for responsive design and styling
+* HTML – markup language for page structure
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
