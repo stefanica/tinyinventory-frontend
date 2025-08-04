@@ -1,7 +1,7 @@
 # TinyInventory React + Vite Frontend SPA
 
 * 50% done -> percentage of the frontend project completed
-* 30% available live -> percentage available for live view on https://tinytinventory.com
+* 30% available live -> percentage available for live view on https://tinyinventory.com
 
 The whole project uses Docker for containerization and a VPS for deployment.  
 The Docker images are updated when certain steps are done/ready, that's why there is a difference in the two percentages above.
